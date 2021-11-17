@@ -3,41 +3,59 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="~/Views/Inventory/styles.css">
+   
+    <style>
+        body {
+        background-color: purple
+        }
+    div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: example;
+    animation-duration: 4s;
+    }
 
-
-</head>
-<body >
-    <h1>TEST</h1>
-    <label>ItemID:</label>
-    <input type="text" id="itemid">
-
-    <label for="lname">Part Number:</label>
-    <input type="text" id="lname" name="lname">
-
-        
-
-    <p id="result"></p>
-    <button onclick="btn_1()">Search</button>
-    
-
-
-
-    <table>
-        <tr>
-            <th>ItemID</th>
-            <th>Description</th>
-            <th>Where</th>
-        </tr>
-        <tr id="inventory">
-        </tr>
-
-    </table>
+    @@keyframes example {
+    from {background-color: red;}
+    to {background-color: yellow;}
+    }
+    </style>
 
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
+        </head >
+        <body >
+        <h1 > TEST</h1 >
+        <label > ItemID:</label >
+        <input type="text" id="itemid" >
+
+        <label for="lname" > Part Number:</label >
+        <input type="text" id="lname" name="lname" >
+
+
+
+        <p id="result" > </p >
+        <button onclick="btn_1()" > Search</button >
+
+
+
+
+        <table >
+        <tr >
+        <th > ItemID</th >
+        <th > Description</th >
+        <th > Where</th >
+        </tr >
+        <tr id="inventory" >
+        </tr >
+
+        </table >
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" > </script >
+        <script >
         $(document).ready(function () {
             //alert('test')
 
@@ -50,9 +68,8 @@
         });
 
         function btn_1() {
-           var itemid = $('#itemid').val();
-            $.post("/Inventory/get_data", itemid,
-                function (data, status) {
+            var itemid = $('#itemid').val();
+            $.post("/Inventory/get_data", itemid, function (data, status) {
                     debugger;
                     //example = ItemID,Description,Where;
                     var td_result = '';
