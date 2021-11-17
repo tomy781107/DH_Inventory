@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "To_Do_List";
+}
+
+<h2>To_Do_List</h2>
+
+<table style="width:100%">
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+    </tr>
+    <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+    </tr>
+</table>
+
+<button id="add_btn">btn</button>
+<button onclick="Add_Function()">Click me</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        function Add_Function() {
+            
+            $.post("/Inventory/add",
+                {
+                    name: "Donald Duck",
+                    city: "Duckburg"
+                },
+                function (data, status) {
+                    alert("Data: " + data + "\nStatus: " + status);
+                });
+
+        };
+
+
+
+
+    </script>
